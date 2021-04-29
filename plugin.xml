@@ -49,7 +49,7 @@
 
 		<source-file src="./framework/JitsiMeetSDK.framework" target-dir="lib" framework="true" />
 		<source-file src="./framework/WebRTC.framework" target-dir="lib" framework="true" />
-		<framework src="./framework/JitsiMeet.framework" custom="true" embed="true" />
+		<framework src="./framework/JitsiMeetSDK.framework" custom="true" embed="true" />
 		<framework src="./framework/WebRTC.framework" custom="true" embed="true" />
 	</platform>
 </plugin>
