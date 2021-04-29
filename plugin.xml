@@ -47,7 +47,7 @@
 		<header-file src="src/ios/JitsiPlugin.h" />
 		<source-file src="src/ios/JitsiPlugin.mm" />
 
-		<source-file src="./framework/JitsiMeet.framework" target-dir="lib" framework="true" />
+		<source-file src="./framework/JitsiMeetSDK.framework" target-dir="lib" framework="true" />
 		<source-file src="./framework/WebRTC.framework" target-dir="lib" framework="true" />
 		<framework src="./framework/JitsiMeet.framework" custom="true" embed="true" />
 		<framework src="./framework/WebRTC.framework" custom="true" embed="true" />
