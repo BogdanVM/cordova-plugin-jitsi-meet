@@ -16,8 +16,10 @@ CDVPluginResult *pluginResult = nil;
     jitsiMeetView.delegate = self;
     JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
         builder.serverURL = [NSURL URLWithString:url];
+        builder.audioOnly = NO;
         builder.audioMuted = NO;
         builder.videoMuted = NO;
+        builder.room = builder.serverURL.lastPathComponent;
         builder.welcomePageEnabled = NO;
     }];
     [jitsiMeetView join:options];
