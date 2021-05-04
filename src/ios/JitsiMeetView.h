@@ -46,4 +46,16 @@
 - (void)sendChatMessage:(NSString * _Nonnull)message :(NSString * _Nullable)to;
 - (void)setVideoMuted:(BOOL)muted;
 
++             (BOOL)application:(UIApplication *_Nonnull)application
+  didFinishLaunchingWithOptions:(NSDictionary *_Nonnull)launchOptions;
+
++    (BOOL)application:(UIApplication * _Nonnull)application
+  continueUserActivity:(NSUserActivity * _Nonnull)userActivity
+    restorationHandler:(void (^ _Nullable)(NSArray * _Nullable))restorationHandler;
+
++ (BOOL)application:(UIApplication * _Nonnull)application
+            openURL:(NSURL * _Nonnull)URL
+  sourceApplication:(NSString * _Nullable)sourceApplication
+         annotation:(id _Nullable)annotation;
+
 @end

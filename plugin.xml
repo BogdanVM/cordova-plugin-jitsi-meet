@@ -46,6 +46,12 @@
 		<header-file src="src/ios/JitsiMeetViewDelegate.h" />
 		<header-file src="src/ios/JitsiMeetConferenceOptions.h" />
 		<header-file src="src/ios/JitsiMeetUserInfo.h" />
+		<header-file src="src/ios/InfoPlistUtil.h" />
+		<header-file src="src/ios/JitsiMeet.h" />
+		<header-file src="src/ios/JitsiMeetBaseLogHandler.h" />
+		<header-file src="src/ios/JitsiMeetLogger.h" />
+		<header-file src="src/ios/JitsiMeetSDK.h" />
+		<header-file src="src/ios/JitsiMeetSDK-Swift.h" />
 		<header-file src="src/ios/JitsiPlugin.h" />
 		<source-file src="src/ios/JitsiPlugin.mm" />
 
