@@ -45,6 +45,7 @@
 		<header-file src="src/ios/JitsiMeetView.h" />
 		<header-file src="src/ios/JitsiMeetViewDelegate.h" />
 		<header-file src="src/ios/JitsiMeetConferenceOptions.h" />
+		<header-file src="src/ios/JitsiMeetUserInfo.h" />
 		<header-file src="src/ios/JitsiPlugin.h" />
 		<source-file src="src/ios/JitsiPlugin.mm" />
 
