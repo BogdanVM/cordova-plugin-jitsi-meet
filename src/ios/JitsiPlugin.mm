@@ -14,14 +14,13 @@ CDVPluginResult *pluginResult = nil;
     jitsiMeetView = [[JitsiMeetView alloc] initWithFrame:self.viewController.view.frame];
     jitsiMeetView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     jitsiMeetView.delegate = self;
-    jitsiMeetView.welcomePageEnabled = NO;
-    [jitsiMeetView loadURLObject:@{
-        @"config": @{
-            @"startWithAudioMuted": @NO,
-            @"startWithVideoMuted": @NO
-        },
-        @"url": url
+    JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
+        builder.serverURL = [NSURL URLWithString:url];
+        builder.audioMuted = NO;
+        builder.videoMuted = NO;
+        builder.welcomePageEnabled = NO;
     }];
+    [jitsiMeetView join:options];
     if (!isInvisible) {
        [self.viewController.view addSubview:jitsiMeetView];
     }
