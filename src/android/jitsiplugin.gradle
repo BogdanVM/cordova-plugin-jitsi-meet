@@ -1,8 +1,9 @@
 repositories{
 	jcenter()
-	maven {
-		url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
-	}
+// 	maven {
+// 		url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
+// 	}
+    maven { url "file:/tmp/repo" }
 	maven {
 		url "https://maven.google.com"
 	}
@@ -41,7 +42,7 @@ android {
 }
 dependencies {
 //org.jitsi.react:jitsi-meet-sdk:2.+ org.jitsi.react:jitsi-meet-sdk:1.9.0@aar
-	implementation  ('org.jitsi.react:jitsi-meet-sdk:2.+') {
+	implementation  ('org.jitsi.react:jitsi-meet-sdk:+') {
 		transitive = true;
 	}
 
