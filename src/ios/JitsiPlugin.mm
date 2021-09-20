@@ -10,6 +10,7 @@ CDVPluginResult *pluginResult = nil;
     NSString* url = [command.arguments objectAtIndex:0];
     NSString* key = [command.arguments objectAtIndex:1];
     Boolean isInvisible = [[command.arguments objectAtIndex:2] boolValue];
+    NSString* authToken = [command.arguments objectAtIndex:3];
     commandBack = command;
     jitsiMeetView = [[JitsiMeetView alloc] initWithFrame:self.viewController.view.frame];
     jitsiMeetView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -21,6 +22,8 @@ CDVPluginResult *pluginResult = nil;
         builder.videoMuted = NO;
         builder.room = builder.serverURL.lastPathComponent;
         builder.welcomePageEnabled = NO;
+
+        builder.token = authToken;
     }];
     [jitsiMeetView join:options];
     if (!isInvisible) {

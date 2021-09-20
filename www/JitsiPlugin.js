@@ -1,7 +1,7 @@
 var exec = require('cordova/exec');
 
-exports.loadURL = function(url, key, isInvisible, success, error) {
-    exec(success, error, "JitsiPlugin", "loadURL", [url, key, !!isInvisible]);
+exports.loadURL = function(url, key, isInvisible, token, success, error) {
+    exec(success, error, "JitsiPlugin", "loadURL", [url, key, !!isInvisible, token]);
 };
 
 exports.destroy = function(success, error) {
