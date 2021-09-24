@@ -52,7 +52,8 @@ public class JitsiPlugin extends CordovaPlugin implements JitsiMeetActivityInter
     if (action.equals("loadURL")) {
       String url = args.getString(0);
       String key = args.getString(1);
-      this.loadURL(url, key, callbackContext);
+      String token = args.getString(3);
+      this.loadURL(url, key, token, callbackContext);
       return true;
     } else if (action.equals("destroy")) {
       this.destroy(callbackContext);
@@ -102,14 +103,12 @@ public class JitsiPlugin extends CordovaPlugin implements JitsiMeetActivityInter
     }
   }
 
-  private void loadURL(final String url, final String key, final CallbackContext callbackContext) {
+  private void loadURL(final String url, final String key, final String token, final CallbackContext callbackContext) {
     Log.e(TAG, "loadURL called : "+url);
     
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {       
         Context context = cordova.getActivity();
-        //view = new JitsiMeetView(context);
-      //  Initialize default options for Jitsi Meet conferences.
         URL serverURL;
         try {          
             serverURL = new URL(url);
@@ -125,82 +124,13 @@ public class JitsiPlugin extends CordovaPlugin implements JitsiMeetActivityInter
           .setFeatureFlag("invite.enabled", false)          
           .setFeatureFlag("calendar.enabled", false)
           .setWelcomePageEnabled(false)
+          .setToken(token)
           .build();
-                
-//         view.join(options);
-//         setJitsiListener(view, callbackContext);
-//         view.setWelcomePageEnabled(false);
-//         Bundle config = new Bundle();
-//         config.putBoolean("startWithAudioMuted", false);
-//         config.putBoolean("startWithVideoMuted", false);
-//         Bundle urlObject = new Bundle();
-//         urlObject.putBundle("config", config);
-//         urlObject.putString("url", url);
-//         view.loadURLObject(urlObject);
-//             cordova.getActivity().setContentView(view);
+
         JitsiMeetActivity.launch(cordova.getActivity(), options);
       }
     });
   }
-
-//   private void setJitsiListener(JitsiMeetView view, final CallbackContext callbackContext) {
-
-//     view.setListener(new JitsiMeetViewListener() {
-//       PluginResult pluginResult;
-
-//       private void on(String name, Map<String, Object> data) {
-//         Log.d("ReactNative", JitsiMeetViewListener.class.getSimpleName() + " " + name + " " + data);
-//       }
-
-//       @Override
-//       public void onConferenceFailed(Map<String, Object> data) {
-//         on("CONFERENCE_FAILED", data);
-//         pluginResult = new PluginResult(PluginResult.Status.OK, new JSONObject(data));
-//         pluginResult.setKeepCallback(true);
-//         callbackContext.sendPluginResult(pluginResult);
-//       }
-
-//       @Override
-//       public void onConferenceJoined(Map<String, Object> data) {
-//         on("CONFERENCE_JOINED", data);
-//         pluginResult = new PluginResult(PluginResult.Status.OK, "CONFERENCE_JOINED");
-//         pluginResult.setKeepCallback(true);
-//         callbackContext.sendPluginResult(pluginResult);
-//       }
-
-//       @Override
-//       public void onConferenceLeft(Map<String, Object> data) {
-//         on("CONFERENCE_LEFT", data);
-//         pluginResult = new PluginResult(PluginResult.Status.OK, "CONFERENCE_LEFT");
-//         pluginResult.setKeepCallback(true);
-//         callbackContext.sendPluginResult(pluginResult);
-//       }
-
-//       @Override
-//       public void onConferenceWillJoin(Map<String, Object> data) {
-//         on("CONFERENCE_WILL_JOIN", data);
-//         pluginResult = new PluginResult(PluginResult.Status.OK, "CONFERENCE_WILL_JOIN");
-//         pluginResult.setKeepCallback(true);
-//         callbackContext.sendPluginResult(pluginResult);
-//       }
-
-//       @Override
-//       public void onConferenceWillLeave(Map<String, Object> data) {
-//         on("CONFERENCE_WILL_LEAVE", data);
-//         pluginResult = new PluginResult(PluginResult.Status.OK, "CONFERENCE_WILL_LEAVE");
-//         pluginResult.setKeepCallback(true);
-//         callbackContext.sendPluginResult(pluginResult);
-//       }
-
-//       @Override
-//       public void onLoadConfigError(Map<String, Object> data) {
-//         on("LOAD_CONFIG_ERROR", data);
-//         pluginResult = new PluginResult(PluginResult.Status.OK, "LOAD_CONFIG_ERROR");
-//         pluginResult.setKeepCallback(true);
-//         callbackContext.sendPluginResult(pluginResult);
-//       }
-//     });
-//   }
 
   private void destroy(final CallbackContext callbackContext) {
     cordova.getActivity().runOnUiThread(new Runnable() {
