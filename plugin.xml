@@ -55,13 +55,13 @@
 		<header-file src="src/ios/JitsiPlugin.h" />
 		<source-file src="src/ios/JitsiPlugin.mm" />
 
-		<source-file src="./framework/JitsiMeetSDKSimulator.framework" target-dir="lib" framework="true" />
-		<source-file src="./framework/WebRTCSimulator.framework" target-dir="lib" framework="true" />
-		<framework src="./framework/JitsiMeetSDKSimulator.framework" custom="true" embed="true" />
-		<framework src="./framework/WebRTCSimulator.framework" custom="true" embed="true" />
-<!--		<source-file src="./framework/JitsiMeetSDK.framework" target-dir="lib" framework="true" />-->
-<!--		<source-file src="./framework/WebRTC.framework" target-dir="lib" framework="true" />-->
-<!--		<framework src="./framework/JitsiMeetSDK.framework" custom="true" embed="true" />-->
-<!--		<framework src="./framework/WebRTC.framework" custom="true" embed="true" />-->
+<!--		<source-file src="./framework/JitsiMeetSDKSimulator.framework" target-dir="lib" framework="true" />-->
+<!--		<source-file src="./framework/WebRTCSimulator.framework" target-dir="lib" framework="true" />-->
+<!--		<framework src="./framework/JitsiMeetSDKSimulator.framework" custom="true" embed="true" />-->
+<!--		<framework src="./framework/WebRTCSimulator.framework" custom="true" embed="true" />-->
+		<source-file src="./framework/JitsiMeetSDK.framework" target-dir="lib" framework="true" />
+		<source-file src="./framework/WebRTC.framework" target-dir="lib" framework="true" />
+		<framework src="./framework/JitsiMeetSDK.framework" custom="true" embed="true" />
+		<framework src="./framework/WebRTC.framework" custom="true" embed="true" />
 	</platform>
 </plugin>
